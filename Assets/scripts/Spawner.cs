@@ -1,30 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject friend;
-    private float _randNum()
+    [SerializeField] private AllyFactory _allyFactory;
+    public int MapSizeXMin = -303;
+    public int MapSizeXMax = 303;
+    public int MapSizeZMin = -185;
+    public int MapSizeZMax = 185;
+
+
+    public void SpawnAlly()
     {
-        return Random.Range(-187, 187);
+        _allyFactory.AllyCreate();
+        AllyRandomLocation();
     }
 
-    private void Awake()
+    public void AllyRandomLocation()
     {
-        NewFriend();
-    }
-    public void NewFriend()
-    {
-        Instantiate(friend, new Vector3(_randNum(), 20f, _randNum()), Quaternion.Euler(0, 0, 0));
+        _allyFactory._ally.transform.position = new Vector3(RandomX(), 20f, RandomZ());
     }
 
-    public void Spawn()
+    public float RandomX()
     {
-        if (AllyCollector.CollisionFriend == true) 
-        {
-            NewFriend();
-            AllyCollector.CollisionFriend = false;
-        }
+        return UnityEngine.Random.Range(MapSizeXMin, MapSizeXMax);
     }
+    public float RandomZ()
+    {
+        return UnityEngine.Random.Range(MapSizeZMin, MapSizeZMax);
+    }
+
+
 }

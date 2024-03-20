@@ -1,35 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class AllyCollector : MonoBehaviour
 {
-    public Text scoreText;
-    public static int _score = 0;
-    public static bool CollisionFriend = false;
+    [SerializeField] private GameController _gameController;
 
-    public void Win()
-    {
-        if (_score == 6)
-        {
-            SceneManager.LoadScene("BetweenLevels");
-            _score = 0;
-        }
-    }
-    public void AddScore()
-    {
-        scoreText.text = "—„≈“: " + _score;
-    }
+    // возможно € что-то не пон€л, но при смене на OnTrigger надо выставл€ть значение
+    // is trigger, при этом физика пропадает, игрок начинает проходить сквозь триггерные объекты, 
+    // данна€ тема чет не очень хороша в плане деревьев. тут надо объ€снени€)
+
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.GetComponent<FriendsScript>() && _score !=6)
-        {
-            _score++;
-            Destroy(col.gameObject);
-            CollisionFriend = true;
-        }
+        if (col.gameObject.GetComponent<Ally>() && _gameController.Score != 6)
+            _gameController.AllyCollected();
+
+        if (col.gameObject.GetComponent<Ally>() && _gameController.Score == 6)
+            _gameController.Victory();
     }
 }

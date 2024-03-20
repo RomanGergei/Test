@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Mover : MonoBehaviour
 {
-    public float speed = 5000f;
+    public float Speed = 5000f;
     public Rigidbody _rb;
+
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
     }
-    public void Move()
+    public void Update()
     {
-        float h = Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime;
-        float v = Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime;
+        float h = Input.GetAxis("Horizontal") * Speed * Time.fixedDeltaTime;
+        float v = Input.GetAxis("Vertical") * Speed * Time.fixedDeltaTime;
         _rb.velocity = transform.TransformDirection(new Vector3(h, _rb.velocity.y, v));
 
     }

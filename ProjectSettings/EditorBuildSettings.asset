@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: c59519057f23e154eafb87cfb099c18b
   - enabled: 1
-    path: Assets/Scenes/BetweenLevels.unity
+    path: Assets/Scenes/Victory.unity
     guid: bd5bc3ba07578db45802ef6f791e2f20
   - enabled: 1
     path: Assets/Scenes/SecondLevel.unity
