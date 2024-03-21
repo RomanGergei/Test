@@ -1,22 +1,22 @@
+using System;
 using UnityEngine;
 
 
 public class Mover : MonoBehaviour
 {
-    public float Speed = 5000f;
-    public Rigidbody _rb;
+    public float Speed = 4000f;
+    public Rigidbody Rigidbody;
+    [SerializeField] private PlayerInput _playerInput;
 
-
-    private void Awake()
+    private void FixedUpdate()
     {
-        _rb = GetComponent<Rigidbody>();
+        if (_playerInput.DirectionVector != null)
+            Move();
     }
-    public void Update()
-    {
-        float h = Input.GetAxis("Horizontal") * Speed * Time.fixedDeltaTime;
-        float v = Input.GetAxis("Vertical") * Speed * Time.fixedDeltaTime;
-        _rb.velocity = transform.TransformDirection(new Vector3(h, _rb.velocity.y, v));
 
+    public void Move()
+    {
+        Rigidbody.AddForce(_playerInput.DirectionVector * Speed);
     }
 
 }
