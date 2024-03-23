@@ -10,12 +10,12 @@ public class TextMessages : MonoBehaviour
     [SerializeField] private GameController _gameController;
 
 
-    public void TextOnStart()
+    public void ScoreOnStart()
     {
         ScoreText.text = "ксрюи рхонб!";
     }
 
-    public void AddAllyText()
+    public void AddScoreText()
     {
         ScoreText.text = "гюксрюк рхонб: " + _gameController.Score;
     }

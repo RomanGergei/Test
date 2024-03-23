@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AllyFactory : MonoBehaviour
 {
     public GameObject AllyPrefab;
-    [NonSerialized] public GameObject _ally;
+    [NonSerialized] public GameObject Ally;
 
     public void AllyCreate()
     {
-        _ally = Instantiate(AllyPrefab);
+        Ally = Instantiate(AllyPrefab);
     }
 }

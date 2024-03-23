@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
     public int Score = 0;
     public GameObject CanvasVictory; // канвас с всплывающим окошком победы
     public GameObject CanvasGameOver; // канвас с всплывающим окошком поражения
-    public GameObject TextOnCanvas; // текстовые сообщения, не несущие в себе счета или хэпэ, просто приколюхи
+    public GameObject TextMassages; // текстовые сообщения, не несущие в себе счета или хэпэ, просто приколюхи
     public GameObject DirectionalLight;
     public GameObject Player;
     [SerializeField] private TextMessages _textMessages;
@@ -14,16 +14,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private AllyFactory _allyFactory;
     [SerializeField] private Health _health;
 
-    private void Awake()
-    {
-        StartGame();
-    }
-
     public void StartGame()
     {
         _spawner.SpawnAlly();
-        _textMessages.TextOnStart();
+        _textMessages.ScoreOnStart();
         _textMessages.HealthText();
+        DirectionalLight.SetActive(true);
     }
 
     public void AllyCollected()
@@ -31,7 +27,7 @@ public class GameController : MonoBehaviour
         Score++;
         _spawner.AllyRandomLocation();
         _health.Resurrection();
-        _textMessages.AddAllyText();
+        _textMessages.AddScoreText();
         _textMessages.TextMessagesOnCollisionAlly();
         _textMessages.HealthText();
     }
@@ -39,8 +35,8 @@ public class GameController : MonoBehaviour
     {
         CanvasVictory.SetActive(true);
         DirectionalLight.SetActive(false);
-        TextOnCanvas.SetActive(false);
-        Destroy(_allyFactory._ally);
+        TextMassages.SetActive(false);
+        Destroy(_allyFactory.Ally);
         Destroy(Player);
     }
 
@@ -48,8 +44,8 @@ public class GameController : MonoBehaviour
     {
         CanvasGameOver.SetActive(true);
         DirectionalLight.SetActive(false);
-        TextOnCanvas.SetActive(false);
-        Destroy(_allyFactory._ally);
+        TextMassages.SetActive(false);
+        Destroy(_allyFactory.Ally);
         Destroy(Player);
     }
 

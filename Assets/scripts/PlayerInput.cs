@@ -13,7 +13,9 @@ public class PlayerInput : MonoBehaviour
     {
         _h = Input.GetAxis("Horizontal");
         _v = Input.GetAxis("Vertical");
-        DirectionVector = new Vector3(_h, 0, _v);
+        Vector3 Vector = new Vector3(_h, 0, _v);
+        DirectionVector = transform.TransformDirection(Vector);
+
     }
 
 

@@ -4,9 +4,9 @@ public class Enemy : MonoBehaviour
 
 {
     [SerializeField] private Health _health;
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.GetComponent<Health>())
-            _health.Death();
+        _health.Death();
     }
 }

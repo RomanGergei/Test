@@ -4,9 +4,8 @@ public class Trees : MonoBehaviour
 {
     [SerializeField] private Health _health;
 
-    private void OnCollisionEnter(Collision Collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (Collision.gameObject.GetComponent<Health>())
-            _health.TakeDamage();
+        _health.TakeDamage();
     }
 }

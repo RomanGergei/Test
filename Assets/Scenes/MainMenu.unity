@@ -469,7 +469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2744548999782610787, guid: 74b5cbd0f42be9146ae8a1f5f9bc2de8, type: 3}
+      - m_Target: {fileID: 7904643189092448833, guid: 74b5cbd0f42be9146ae8a1f5f9bc2de8, type: 3}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: ToExitGame
         m_Mode: 1
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2744548999782610787, guid: 74b5cbd0f42be9146ae8a1f5f9bc2de8, type: 3}
+      - m_Target: {fileID: 7904643189092448833, guid: 74b5cbd0f42be9146ae8a1f5f9bc2de8, type: 3}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: ToFirstLevel
         m_Mode: 1
@@ -1543,9 +1543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e748743733bbe40957cb23a5b1b250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5000
-  boost: 1.01
-  _rb: {fileID: 2141799678}
+  Speed: 4000
+  Rigidbody: {fileID: 0}
+  _playerInput: {fileID: 0}
 --- !u!114 &2141799685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,6 +1558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00e532869a850b41ae3cea9f24f82a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartHealth: 5
+  CurrentHealth: 5
+  _gameController: {fileID: 0}
+  _textMessages: {fileID: 0}
 --- !u!114 &2141799686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,7 +1574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14c1a8a207a4204e8dd507f683be922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friend: {fileID: 7645748039394942479, guid: 8578c28b1fa8d6244af62b847ab093be, type: 3}
+  _allyFactory: {fileID: 0}
+  MapSizeXMin: -303
+  MapSizeXMax: 303
+  MapSizeZMin: -185
+  MapSizeZMax: 185
 --- !u!114 &2141799691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,7 +1591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f30d58ecd0e9b4da27eb294686c7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMover: {fileID: 2141799684}
 --- !u!1001 &13582892877026579
 PrefabInstance:
   m_ObjectHideFlags: 0
